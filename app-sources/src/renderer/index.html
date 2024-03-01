@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool app</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <main class="main-content">
+            <ul class="workflow-list">
+                <li class="workflow-item">
+                    Mechanics
+                    <ul class="sub-list">
+                    </ul>
+                </li>
+                <li class="workflow-item">
+                    Thermal Physics
+                    <ul class="sub-list">
+                    </ul>
+                </li>
+            </ul>
+            <div class="workflow-actions">
+                <button id="reset-workflow">Reset Data</button>
+                <button id="complete-workflow">Process Data *</button>
+            </div>
+            
+            <button = id="toggle-sidebar">i</button>
+
+            <div class="workflow-search">
+                <input type="text" id="search" placeholder="Search flow detes ...">
+                <button id="search-button">Search</button>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <section class="search-results">
+                <div class="search-results-area" readonly></div>
+                <button id="clear-search">Clear</button>
+            <section class="output">
+                <div class="output-area" readonly></div>
+            </section>
+            <div class="sidebar-actions">
+                <button id="workflow-output">Show flow output</button>
+                <button id="reset-output">Show reset data</button>
+        </aside>
+    </div>
+    <script src="./scripts/renderer.js"></script>
+</body>
+
+</html>
