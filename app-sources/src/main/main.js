@@ -13,7 +13,6 @@ let mainWindow;
 
 /*
 require('electron-reload')(__dirname, {
-    // Note: If you're using webpack, point this to your src directory instead
     electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
 });
 */
@@ -237,7 +236,7 @@ ipcMain.on('openApplication', (event, arg) => {
 
     child.on('exit', (code, signal) => {
         console.log(`The PISTY app exited with code ${code} and signal ${signal}`);
-        watcher.close(); // Make sure to close the watcher when the child process exits
+        watcher.close();
     });
 
     const watcher = fs.watch(outputPath, (eventType, filename) => {
