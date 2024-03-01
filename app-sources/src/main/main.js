@@ -13,7 +13,6 @@ let mainWindow;
 
 /*
 require('electron-reload')(__dirname, {
-    // Note: If you're using webpack, point this to your src directory instead
     electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
 });
 */
