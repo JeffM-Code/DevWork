@@ -1,0 +1,21 @@
+Reset Workflow Initiated
+File reset: bubble_sorted_processed_data.txt
+File reset: merge_sorted_processed_data.txt
+File reset: processed_average_velocity_data_queue_enqueued_dequeued.txt
+File reset: processed_average_velocity_data_stack_pushed_popped.txt
+File reset: processed_final_displacement_data_queue_enqueued_dequeued.txt
+File reset: processed_final_displacement_data_stack_pushed_popped.txt
+File reset: processed_final_velocity_data_queue_enqueued_dequeued.txt
+File reset: processed_final_velocity_data_stack_pushed_popped.txt
+File reset: processed_force_data_queue_enqueued_dequeued.txt
+File reset: processed_force_data_stack_pushed_popped.txt
+File reset: processed_latent_heat_data_queue_enqueued_dequeued.txt
+File reset: processed_latent_heat_data_stack_pushed_popped.txt
+File reset: processed_sensible_heat_data_queue_enqueued_dequeued.txt
+File reset: processed_sensible_heat_data_stack_pushed_popped.txt
+File reset: processed_velocity_data_queue_enqueued_dequeued.txt
+File reset: processed_velocity_data_stack_pushed_popped.txt
+File reset: processed_weight_data_queue_enqueued_dequeued.txt
+File reset: processed_weight_data_stack_pushed_popped.txt
+File reset: quick_sorted_processed_data.txt
+All processed data files have been reset.

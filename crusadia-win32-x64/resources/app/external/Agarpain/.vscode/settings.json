@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "thermal_physics_calculation_controller.h": "c",
+        "calculations_controller.h": "c",
+        "mechanics_calculation_controller.h": "c",
+        "stdio.h": "c"
+    }
+}
