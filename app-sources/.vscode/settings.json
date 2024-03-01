@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "mechanics_calculations.h": "c",
-        "thermal_physics.h": "c",
-        "thermal_physics_calculation_controller.h": "c",
-        "thermal_physics_calculations.h": "c"
-    }
-}
