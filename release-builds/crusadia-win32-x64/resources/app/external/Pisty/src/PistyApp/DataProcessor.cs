@@ -12,7 +12,7 @@ namespace PistyApp
         {
             sourceDirectory = sourceDir;
             targetDirectory = targetDir;
-            databaseDirectory = dbDir; // Initialize database directory
+            databaseDirectory = dbDir;
         }
 
         public List<double?> ReadDataFromFile(string filePath)
@@ -63,7 +63,7 @@ namespace PistyApp
             using (var connection = new SqliteConnection($"Data Source={dbFilePath}"))
             {
                 connection.Open();
-                string query = "SELECT Value FROM data"; // Assuming a standard table and column name
+                string query = "SELECT Value FROM data";
                 using (var command = new SqliteCommand(query, connection))
                 {
                     using (var reader = command.ExecuteReader())
@@ -105,24 +105,21 @@ namespace PistyApp
             string dbFilePath = Path.Combine(databaseDirectory, $"{baseFileName}.db");
             string textFilePath = Path.Combine(sourceDirectory, $"{baseFileName}.txt");
 
-            // Attempt to read from database if preferred and available
             if (preferDatabase && File.Exists(dbFilePath))
             {
                 Console.WriteLine($"Reading from database: {dbFilePath}");
-                data = ReadDataFromDatabase(baseFileName); // Implement this method as needed
+                data = ReadDataFromDatabase(baseFileName);
                 if (data.Any())
                 {
                     return data;
                 }
-                // If database was preferred but no data was found, log this
                 Console.WriteLine($"No data found in database: {dbFilePath}. Attempting to read from text file.");
             }
 
-            // Fallback or preference for text file
             if (File.Exists(textFilePath))
             {
                 Console.WriteLine($"Reading from text file: {textFilePath}");
-                data = ReadDataFromFile(textFilePath); // Implement this method as needed
+                data = ReadDataFromFile(textFilePath);
             }
             else
             {

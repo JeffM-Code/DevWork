@@ -14,65 +14,42 @@ namespace PistyApp
             this.dataProcessor = dataProcessor;
             this.sourceDirectory = sourceDir;
             this.targetDirectory = targetDir;
-            this.workflowManager = workflowManager; // Store the WorkflowManager instance
+            this.workflowManager = workflowManager;
         }
 
         private List<double> ReadData(string baseFileName)
         {
-            // Attempt to read from the database first, then fallback to file if necessary
             var dataNullable = dataProcessor.ReadData(baseFileName.Replace(".txt", ""), true);
-            // Filter out nulls and ensure list has only valid (non-null) data
             return dataNullable.Where(x => x.HasValue).Select(x => x!.Value).ToList();
         }
 
-        /*
-        
-        Existence
-
-        */
-
         public void ProcessWeight()
         {
-            // Assume ReadData is a method that reads data and returns a List<double>
-            var massData = ReadData("mass_data"); // Placeholder for actual data reading logic
-            var gravityData = ReadData("gravity_data"); // Placeholder for actual data reading logic
+            var massData = ReadData("mass_data");
+            var gravityData = ReadData("gravity_data");
 
             List<string> results = new List<string>();
 
-            // Assuming massData and gravityData are lists of doubles and have the same count
             int count = Math.Min(massData.Count, gravityData.Count);
             for (int i = 0; i < count; i++)
             {
-                // Calculate weight using the formula: weight = mass * gravity
                 double weight = mechanicsDataProcessing.CalculateWeight(massData[i], gravityData[i]);
-                results.Add($"{weight} N"); // Assuming the result is in Newtons
+                results.Add($"{weight} N");
             }
 
-            // Define the filename for saving results
             string fileName = "processed_weight_data.txt";
 
-            // Save results to the original processed_data directory
             string processedFilePath = Path.Combine(targetDirectory, fileName);
             dataProcessor.WriteResultsToFile(processedFilePath, results);
 
-            // Save results to the new workflow directory
-            // Note: "Physics\\Mechanics" is the subpath for mechanics data within the workflow directory.
             string workflowFilePath = Path.Combine(workflowManager.GetProcessingTypePath("Physics\\Mechanics"), fileName);
             dataProcessor.WriteResultsToFile(workflowFilePath, results);
 
             Console.WriteLine("Processed Weight calculations completed successfully and saved to both directories.");
         }
 
-
-        /*
-
-        Motion
-
-        */
-
         public void ProcessVelocity()
         {
-            // Assuming ReadData method exists and reads data from the source, returning a list of double
             var distanceData = ReadData("distance_data");
             var timeData = ReadData("time_data");
 
@@ -81,7 +58,7 @@ namespace PistyApp
             int count = Math.Min(distanceData.Count, timeData.Count);
             for (int i = 0; i < count; i++)
             {
-                if (timeData[i] == 0) // Check to avoid division by zero
+                if (timeData[i] == 0)
                 {
                     Console.WriteLine($"Skipping velocity calculation for entry {i + 1} due to zero time value.");
                     continue;
@@ -91,14 +68,11 @@ namespace PistyApp
                 results.Add($"{velocity} m/s");
             }
 
-            // Define the filename for processed data
             string fileName = "processed_velocity_data.txt";
 
-            // Save results to the original processed_data directory
             string processedFilePath = Path.Combine(targetDirectory, fileName);
             dataProcessor.WriteResultsToFile(processedFilePath, results);
 
-            // Save results to the new workflow directory
             string workflowFilePath = Path.Combine(workflowManager.GetProcessingTypePath("Physics\\Mechanics"), fileName);
             dataProcessor.WriteResultsToFile(workflowFilePath, results);
 
@@ -108,7 +82,6 @@ namespace PistyApp
 
         public void ProcessSpeed()
         {
-            // Assuming ReadData method exists and reads data from the source, returning a list of double
             var distanceData = ReadData("distance_data");
             var timeData = ReadData("time_data");
 
@@ -117,24 +90,21 @@ namespace PistyApp
             int count = Math.Min(distanceData.Count, timeData.Count);
             for (int i = 0; i < count; i++)
             {
-                if (timeData[i] == 0) // Check to avoid division by zero
+                if (timeData[i] == 0)
                 {
                     Console.WriteLine($"Skipping speed calculation for entry {i + 1} due to zero time value.");
                     continue;
                 }
 
-                double speed = distanceData[i] / timeData[i]; // Calculate speed
+                double speed = distanceData[i] / timeData[i];
                 results.Add($"{speed} m/s");
             }
 
-            // Define the filename for processed data
             string fileName = "processed_speed_data.txt";
 
-            // Save results to the original processed_data directory
             string processedFilePath = Path.Combine(targetDirectory, fileName);
             dataProcessor.WriteResultsToFile(processedFilePath, results);
 
-            // Additionally, save results to the workflow directory
             string workflowFilePath = Path.Combine(workflowManager.GetProcessingTypePath("Physics\\Mechanics"), fileName);
             dataProcessor.WriteResultsToFile(workflowFilePath, results);
 
@@ -176,7 +146,7 @@ namespace PistyApp
             int count = Math.Min(initialVelocityData.Count, Math.Min(accelerationData.Count, timeData.Count));
             for (int i = 0; i < count; i++)
             {
-                double finalVelocity = initialVelocityData[i] + accelerationData[i] * timeData[i]; // Calculate final velocity
+                double finalVelocity = initialVelocityData[i] + accelerationData[i] * timeData[i];
                 results.Add($"{finalVelocity} m/s");
             }
 
@@ -240,12 +210,6 @@ namespace PistyApp
             Console.WriteLine("Processed Average Velocity calculations completed successfully and saved to both directories.");
         }
 
-        /*
-
-        Interaction
-
-        */
-
         public void ProcessForce()
         {
             var massData = ReadData("mass_data");
@@ -256,8 +220,8 @@ namespace PistyApp
             int count = Math.Min(massData.Count, accelerationData.Count);
             for (int i = 0; i < count; i++)
             {
-                double force = massData[i] * accelerationData[i]; // Calculate force using F = ma
-                results.Add($"{force} N"); // Newtons
+                double force = massData[i] * accelerationData[i];
+                results.Add($"{force} N");
             }
 
             string fileName = "processed_force_data.txt";

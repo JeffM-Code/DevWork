@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Adjusted to accept and use calculationType
 void process_thermal_physics_calculations(char *calculationType)
 {
     double mass, latentHeatCapacity;

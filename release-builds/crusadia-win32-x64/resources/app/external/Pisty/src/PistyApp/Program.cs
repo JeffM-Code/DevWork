@@ -8,38 +8,30 @@ namespace PistyApp
         {
             Console.WriteLine("*.*.*..*.*.** PISTY *.*.*..*.*.**\n");
 
-            // Initialize path management
             PathManager pathManager = new PathManager();
             string sourceDirectory = pathManager.GetSourcePath();
             string targetDirectory = pathManager.GetTargetPath();
-            string databaseDirectory = pathManager.GetDatabasePath(); // Ensure this method returns the database directory path
-            string workflowDirectory = pathManager.GetWorkflowPath(); // Assuming GetWorkflowPath() is implemented in PathManager
+            string databaseDirectory = pathManager.GetDatabasePath();
+            string workflowDirectory = pathManager.GetWorkflowPath();
             string elpyAppPath = pathManager.GetElpyAppPath();
 
-            // Initialize WorkflowManager with the workflow directory path
             WorkflowManager workflowManager = new WorkflowManager(workflowDirectory);
-
-            // Initialize DatabaseManager to create databases from text files
             DatabaseManager databaseManager = new DatabaseManager(sourceDirectory, databaseDirectory);
-            databaseManager.CreateDatabasesFromTextFiles(); // Populate databases from text files
 
-            // Initialize core data processing utilities
+            databaseManager.CreateDatabasesFromTextFiles();
+
             DataProcessor dataProcessor = new DataProcessor(sourceDirectory, targetDirectory, databaseDirectory);
 
             PhysicsDataProcessing physicsDataProcessing = new PhysicsDataProcessing();
 
-            // Initialize domain-specific data processing
             MechanicsDataProcessing mechanicsDataProcessing = new MechanicsDataProcessing(physicsDataProcessing);
             ThermalPhysicsDataProcessing thermalPhysicsDataProcessing = new ThermalPhysicsDataProcessing(physicsDataProcessing);
 
-            // Initialize domain-specific data processors with WorkflowManager
             MechanicsDataProcessor mechanicsDataProcessor = new MechanicsDataProcessor(mechanicsDataProcessing, dataProcessor, sourceDirectory, targetDirectory, workflowManager);
             ThermalPhysicsDataProcessor thermalPhysicsDataProcessor = new ThermalPhysicsDataProcessor(thermalPhysicsDataProcessing, dataProcessor, sourceDirectory, targetDirectory, workflowManager);
 
-            // Execute processing tasks
             PerformPhysicsCalculations(mechanicsDataProcessor, thermalPhysicsDataProcessor);
 
-            // Once all processing is complete, run the external C++ application
             ProgramRunner.RunExternalApp(elpyAppPath);
         }
 

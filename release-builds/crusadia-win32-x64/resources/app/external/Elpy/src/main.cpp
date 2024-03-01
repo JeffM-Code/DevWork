@@ -28,7 +28,7 @@ int main()
         /*
         Algorithms
         */
-        AlgorithmManager algorithmManager; // No need to specify the search path
+        AlgorithmManager algorithmManager;
 
         // std::string pattern;
         // std::cout << "Enter search pattern: ";

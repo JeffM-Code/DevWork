@@ -1,7 +1,7 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include "Node.h" // Include the common Node class
+#include "Node.h"
 
 class Queue
 {
@@ -20,4 +20,4 @@ public:
     void printQueue() const;
 };
 
-#endif // QUEUE_H
+#endif

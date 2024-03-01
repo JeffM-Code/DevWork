@@ -6,7 +6,7 @@
 
 void process_calculations()
 {
-    char calculationType[100]; // Buffer for calculation type as string
+    char calculationType[100];
 
     while (scanf_s("%s", calculationType, (unsigned int)(sizeof(calculationType) / sizeof(calculationType[0]) - 1)) != EOF)
     {

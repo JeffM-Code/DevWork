@@ -3,4 +3,4 @@
 
 void process_mechanics_calculations(char* calculationType);
 
-#endif // MECHANICS_CALCULATION_CONTROLLER_H
+#endif

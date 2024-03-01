@@ -11,7 +11,6 @@ namespace PistyApp
 
         public double CalculateLatentHeat(double mass, double latentHeatCapacity)
         {
-            // Example validation, adjust according to your actual requirements
             if (mass <= 0 || latentHeatCapacity <= 0)
             {
                 throw new ArgumentException("Mass and latent heat capacity must be greater than zero.");
@@ -23,7 +22,6 @@ namespace PistyApp
 
         public double CalculateSensibleHeat(double mass, double specificHeatCapacity, double changeInTemperature)
         {
-            // Example validation, adjust according to your actual requirements
             if (mass <= 0 || specificHeatCapacity <= 0 || changeInTemperature <= 0)
             {
                 throw new ArgumentException("Mass, specific heat capacity, and change in temperature must be greater than zero.");

@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkAndToggleWorkflowButtonsVisibility = () => {
         const anySelected = document.querySelector('.workflow-item.selected');
         completeButton.style.display = anySelected ? 'block' : 'none';
-        resetButton.style.display = anySelected ? 'block' : 'none'; // Add this line
+        resetButton.style.display = anySelected ? 'block' : 'none';
     };
 
     const clearSelections = (exceptItem = null) => {
@@ -104,12 +104,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function toggleSearchButtonVisibility() {
-        // Check if the search input has text
         if (searchInput.value.trim().length > 0) {
-            // If there is text, show the search button
-            searchButton.style.display = 'inline-block'; // or 'block' depending on your layout
+            searchButton.style.display = 'inline-block';
         } else {
-            // If there is no text, hide the search button
             searchButton.style.display = 'none';
         }
     }
@@ -118,21 +115,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const searchResultsArea = document.querySelector('.search-results-area');
         const clearSearchButton = document.getElementById('clear-search');
         
-        // Check if the search results area has content (child nodes)
         if (searchResultsArea.innerHTML.trim() !== '') {
-            // If there is content, make the clear search button visible
             clearSearchButton.style.display = 'block';
         } else {
-            // If there is no content, hide the clear search button
             clearSearchButton.style.display = 'none';
         }
     }
 
-    // Initially call the toggle function in case there's already text filled in (e.g., by browser autofill)
     toggleSearchButtonVisibility();
     toggleClearSearchButtonVisibility();
 
-    // Add event listener for input changes on the search input
     searchInput.addEventListener('input', toggleSearchButtonVisibility);
 
     completeButton.addEventListener('click', () => {
@@ -151,21 +143,17 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleSidebarButton.addEventListener('click', () => {
         sidebar.classList.toggle('sidebar-hidden');
 
-        // Toggle the class based on the sidebar visibility
         toggleSidebarButton.classList.toggle('toggle-sidebar-active', !sidebar.classList.contains('sidebar-hidden'));
     });
 
     clearSearchButton.addEventListener('click', () => {
-        // Get the search results area by its class
         const searchResultsArea = document.querySelector('.search-results-area');
 
-        // Reset the content of the search results area to empty, effectively clearing it
         searchResultsArea.innerHTML = '';
     });
 
     document.getElementById('complete-workflow').addEventListener('click', () => {
     
-        // Reveal the sidebar by removing the 'sidebar-hidden' class or adjusting the style directly
         document.querySelector('.sidebar').classList.remove('sidebar-hidden');
     });
 
@@ -219,24 +207,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('search-button').addEventListener('click', () => {
         const searchQuery = document.getElementById('search').value.trim();
         if (searchQuery) {
-            // Trigger the search operation
             window.electronAPI.sendMessage('searchWorkflowContent', searchQuery);
     
-            // Immediately show the clear search button, regardless of search results
             document.getElementById('clear-search').style.display = 'block';
     
-            // Reveal the sidebar by removing the 'sidebar-hidden' class
             document.querySelector('.sidebar').classList.remove('sidebar-hidden');
             
-            // Wait for a second (1000 milliseconds), then reset the text in the search input area
             setTimeout(() => {
                 document.getElementById('search').value = '';
-                // Since the input is now cleared, you might want to hide the search button again
-                // if your UI logic requires the search button to only be visible when there's input
                 toggleSearchButtonVisibility();
-                // Consider updating the clear search button visibility as needed
                 toggleClearSearchButtonVisibility();
-            }, 100); // Adjusted the timeout to 1000 milliseconds for the actual wait
+            }, 100);
         }
     });
     
@@ -271,26 +252,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.electronAPI.receiveMessage('searchResults', (data) => {
         const resultsArea = document.querySelector('.search-results-area');
-        resultsArea.innerHTML = ''; // Clear previous results
+        resultsArea.innerHTML = '';
 
-        // Check if the directory was not found
         if (data.directoryNotFound) {
             resultsArea.textContent = "The workflow directory was not found.";
-            return; // Exit early as there's nothing more to do
+            return;
         }
 
-        // If no results but directories were searched
         if (!data.results || data.results.length === 0) {
             let searchedPathsFormatted = data.searchedPaths.map(path =>
                 path.replace(/\\/g, ' > ')
             ).join('<br>');
 
             let message = `Searched paths:<br><br>${searchedPathsFormatted}<br><br>Search pattern "${data.searchQuery}" not found in any file.`;
-            resultsArea.innerHTML = message; // Use innerHTML to allow HTML formatting
-            return; // Exit after handling no results found
+            resultsArea.innerHTML = message;
+            return;
         }
 
-        // Handle and display search results
         data.results.forEach(result => {
             if (result && result.path && result.line) {
                 const pathFormatted = result.path.replace(/\\/g, ' > ');
@@ -311,15 +289,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('clear-search').addEventListener('click', () => {
         const searchResultsArea = document.querySelector('.search-results-area');
     
-        // Clear the content of the search results area
         searchResultsArea.innerHTML = '';
     
-        // Hide the clear search button since the search results have been cleared
         document.getElementById('clear-search').style.display = 'none';
     
-        // Optionally, clear the search input field as well
-        //document.getElementById('search').value = '';
-        // Update the visibility of the search button based on the now empty search input
         toggleSearchButtonVisibility();
     });
 });

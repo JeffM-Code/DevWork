@@ -3,14 +3,15 @@
 
 #include <string>
 
-class Node {
+class Node
+{
 public:
     std::string data;
-    std::string filename; // Assuming this is for storing related file information
-    Node* next;
-    Node* prev; // Add a previous pointer to support doubly linked list
+    std::string filename;
+    Node *next;
+    Node *prev;
 
-    Node(const std::string& data, const std::string& filename) : data(data), filename(filename), next(nullptr), prev(nullptr) {}
+    Node(const std::string &data, const std::string &filename) : data(data), filename(filename), next(nullptr), prev(nullptr) {}
 };
 
-#endif // NODE_H
+#endif

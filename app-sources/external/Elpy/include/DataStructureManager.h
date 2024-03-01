@@ -16,16 +16,16 @@ private:
     Stack stack;
     std::filesystem::path readPath;
     std::filesystem::path writePath;
-    DirectoryTree* directoryTree;
+    DirectoryTree *directoryTree;
 
 public:
     Graph dataGraph;
-    DataStructureManager(); // Constructor to setup paths
+    DataStructureManager();
     void setupPaths(const std::string &baseReadPath = "", const std::string &baseWritePathSuffix = "");
-    void loadData(); // Combined loading for both queue and stack
+    void loadData();
     void processQueueData();
-    void processStackData(); // New method for stack processing
+    void processStackData();
     void printDirectoryTree();
 };
 
-#endif // DATASTRUCTUREMANAGER_H
+#endif

@@ -15,4 +15,4 @@ private:
     static int extractNumber(const std::string &s);
 };
 
-#endif // QUICKSORT_H
+#endif

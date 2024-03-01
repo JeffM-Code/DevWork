@@ -11,7 +11,7 @@ namespace PistyApp
         public PathManager()
         {
             documentsFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            
+
             pistyBasePath = Path.Combine(documentsFolderPath, "release-builds", "crusadia-win32-x64", "resources", "app", "external", "Pisty");
             elpyBasePath = Path.Combine(documentsFolderPath, "release-builds", "crusadia-win32-x64", "resources", "app", "external", "Elpy", "build", "Release");
             agarpainBasePath = Path.Combine(documentsFolderPath, "release-builds", "crusadia-win32-x64", "resources", "app", "external", "Agarpain", "build", "Release");

@@ -3,4 +3,4 @@
 
 void process_thermal_physics_calculations(char* calculationType);
 
-#endif // THERMAL_PHYSICS_CALCULATION_CONTROLLER_H
+#endif

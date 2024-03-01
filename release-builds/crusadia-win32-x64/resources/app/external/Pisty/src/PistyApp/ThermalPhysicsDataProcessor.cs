@@ -6,15 +6,15 @@ namespace PistyApp
         private readonly DataProcessor dataProcessor;
         private readonly string sourceDirectory;
         private readonly string targetDirectory;
-        private readonly WorkflowManager workflowManager; // Add this line
+        private readonly WorkflowManager workflowManager;
 
-        public ThermalPhysicsDataProcessor(ThermalPhysicsDataProcessing thermalPhysicsProcessing, DataProcessor dataProcessor, string sourceDir, string targetDir, WorkflowManager workflowManager) // Update this line
+        public ThermalPhysicsDataProcessor(ThermalPhysicsDataProcessing thermalPhysicsProcessing, DataProcessor dataProcessor, string sourceDir, string targetDir, WorkflowManager workflowManager)
         {
             this.thermalPhysicsDataProcessing = thermalPhysicsProcessing;
             this.dataProcessor = dataProcessor;
             this.sourceDirectory = sourceDir;
             this.targetDirectory = targetDir;
-            this.workflowManager = workflowManager; // Add this line
+            this.workflowManager = workflowManager;
         }
 
         private List<double> ReadData(string baseFileName)
@@ -37,11 +37,9 @@ namespace PistyApp
                 results.Add($"{latentHeat} J");
             }
 
-            // Save results to the original processed_data directory
             string processedFilePath = Path.Combine(targetDirectory, "processed_latent_heat_data.txt");
             dataProcessor.WriteResultsToFile(processedFilePath, results);
 
-            // Save results to the new workflow directory
             string workflowFilePath = Path.Combine(workflowManager.GetProcessingTypePath("Physics\\ThermalPhysics"), "processed_latent_heat_data.txt");
             dataProcessor.WriteResultsToFile(workflowFilePath, results);
 
@@ -63,11 +61,9 @@ namespace PistyApp
                 results.Add($"{sensibleHeat} J");
             }
 
-            // Save results to the original processed_data directory
             string processedFilePath = Path.Combine(targetDirectory, "processed_sensible_heat_data.txt");
             dataProcessor.WriteResultsToFile(processedFilePath, results);
 
-            // Save results to the new workflow directory
             string workflowFilePath = Path.Combine(workflowManager.GetProcessingTypePath("Physics\\ThermalPhysics"), "processed_sensible_heat_data.txt");
             dataProcessor.WriteResultsToFile(workflowFilePath, results);
 

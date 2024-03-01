@@ -50,7 +50,6 @@ namespace PistyApp
 
                     Console.WriteLine($"Received from *..**.* AGARPAIN *.**..*: [{result}]");
 
-                    // Extract the numeric part of the result
                     var match = Regex.Match(result, @"\d+(\.\d+)?");
 
                     if (match.Success && double.TryParse(match.Value, out double calculationResult))
@@ -60,14 +59,14 @@ namespace PistyApp
                     else
                     {
                         Console.WriteLine("Failed to parse calculation result.");
-                        return double.NaN; // Consider appropriate error handling
+                        return double.NaN;
                     }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred while performing physics calculation: {ex.Message}");
-                return double.NaN; // Consider appropriate error handling
+                return double.NaN;
             }
         }
     }

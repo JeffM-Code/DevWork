@@ -20,7 +20,6 @@ namespace PistyApp
                 Directory.CreateDirectory(baseWorkflowPath);
             }
 
-            // Create subdirectories for each processing type as needed
             EnsureSubdirectory("Physics\\Mechanics");
             EnsureSubdirectory("Physics\\ThermalPhysics");
         }

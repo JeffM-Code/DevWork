@@ -10,10 +10,8 @@ void Graph::addNode(std::string data, std::string filename)
 
 void Graph::addEdge(std::string fromData, std::string fromFilename, std::string toData, std::string toFilename)
 {
-    // Ensure both nodes exist
     if (nodes.find(fromFilename) == nodes.end() || nodes.find(toFilename) == nodes.end())
     {
-        // Handle the error or create missing nodes
         return;
     }
 
@@ -22,13 +20,12 @@ void Graph::addEdge(std::string fromData, std::string fromFilename, std::string 
 
 Graph::~Graph()
 {
-    // Make sure you are not double-deleting or deleting uninitialized pointers
     for (auto &nodePair : nodes)
     {
-        delete nodePair.second->dataNode; // Only delete if you have new'ed in the corresponding GraphNode
-        delete nodePair.second;           // Only delete if you have new'ed a GraphNode
+        delete nodePair.second->dataNode;
+        delete nodePair.second;
     }
-    nodes.clear(); // Clear the container after deleting all pointers
+    nodes.clear();
 }
 
 void Graph::printGraph() const

@@ -2,7 +2,6 @@
 #include <sstream>
 #include <vector>
 
-// Update parameter types to size_t to avoid narrowing conversions
 void MergeSort::sort(std::vector<std::string> &values) const
 {
     if (!values.empty())

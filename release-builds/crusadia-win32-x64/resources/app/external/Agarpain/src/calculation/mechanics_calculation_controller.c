@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Adjusted to accept and use calculationType
 void process_mechanics_calculations(char *calculationType)
 {
     double mass, acceleration, gravity, distance, time, initial_velocity, final_velocity,

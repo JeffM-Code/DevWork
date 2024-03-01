@@ -10,10 +10,6 @@ namespace PistyApp
         }
 
         /*
-        * Existence
-        */
-
-        /*
         Weight:
 
         Eq. i: W = m * g
@@ -26,14 +22,9 @@ namespace PistyApp
         // Eq. i
         public double CalculateWeight(double mass, double gravity)
         {
-            // Use the existing field instead of creating a new instance
             string input = $"calc_type_weight\n{mass} {gravity}\n";
             return physicsDataProcessing.PerformCalculation(input);
         }
-
-        /*
-        * Motion
-        */
 
         /*
         Velocity:
@@ -170,10 +161,6 @@ namespace PistyApp
             string input = $"calc_type_average_velocity\n{finalVelocity} {initialVelocity}\n";
             return physicsDataProcessing.PerformCalculation(input);
         }
-
-        /*
-        * Interaction
-        */
 
         /*
         Force:

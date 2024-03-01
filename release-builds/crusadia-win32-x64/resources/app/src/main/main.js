@@ -6,7 +6,6 @@ const { spawn } = require('child_process');
 const os = require('os');
 const sqlite3 = require('sqlite3').verbose();
 
-// Documents\release-builds\crusadia-win32-x64\resources\app\output\resetLog.txt"
 const outputPath = path.join(os.homedir(), 'Documents', 'release-builds', 'crusadia-win32-x64', 'resources', 'app', 'output', 'workflowOutput.txt');
 const resetLogPath = path.join(os.homedir(), 'Documents', 'release-builds', 'crusadia-win32-x64', 'resources', 'app', 'output', 'resetLog.txt');
 
@@ -122,22 +121,19 @@ async function searchDirectory(dirPath, query) {
 
     try {
         const files = await fsp.readdir(dirPath, { withFileTypes: true });
-        searchedPaths.push(dirPath); // Record the directory being searched
+        searchedPaths.push(dirPath);
 
         for (const file of files) {
             const filePath = path.join(dirPath, file.name);
             
             if (file.isDirectory()) {
-                // Recursively search in subdirectories
                 const subSearch = await searchDirectory(filePath, query);
                 results = results.concat(subSearch.results);
                 searchedPaths = searchedPaths.concat(subSearch.searchedPaths);
             } else if (file.isFile() && path.extname(file.name) === '.txt') {
-                // Read and search only in text files
                 const content = await fsp.readFile(filePath, 'utf8');
                 const lines = content.split(/\r?\n/);
 
-                // Create a regex pattern to match the query as a whole word, case-insensitive
                 const regex = new RegExp(`\\b${query}\\b`, 'i');
 
                 lines.forEach((line, index) => {
@@ -150,9 +146,8 @@ async function searchDirectory(dirPath, query) {
     } catch (error) {
         console.error(`Error searching directory ${dirPath}:`, error);
         if (error.code === 'ENOENT') {
-            directoryNotFound = true; // Set flag if directory is not found
+            directoryNotFound = true;
         }
-        // Optionally handle other types of errors or rethrow them
     }
 
     return { results, searchedPaths, directoryNotFound };

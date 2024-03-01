@@ -13,4 +13,4 @@ private:
     static int extractNumber(const std::string &s);
 };
 
-#endif // BUBBLESORT_H
+#endif

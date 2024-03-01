@@ -11,11 +11,11 @@ private:
 
 public:
     AlgorithmManager();
-    void performPatternSearch(const std::string &pattern) const; // For performing naive pattern search
-    void performLinearSearch() const;                            // For performing linear search for values over 5
-    void performBubbleSort() const;                              // New method for performing bubble sort on file contents
+    void performPatternSearch(const std::string &pattern) const;
+    void performLinearSearch() const;
+    void performBubbleSort() const;
     void performMergeSort() const;
     void performQuickSort() const;
 };
 
-#endif // ALGORITHMMANAGER_H
+#endif

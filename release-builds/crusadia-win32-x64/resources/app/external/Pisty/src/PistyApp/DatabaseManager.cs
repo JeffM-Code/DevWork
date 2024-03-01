@@ -10,7 +10,6 @@ public class DatabaseManager
         sourceDirectory = sourceDir;
         databaseDirectory = dbDir;
 
-        // Ensure database directory exists
         if (!Directory.Exists(databaseDirectory))
         {
             Directory.CreateDirectory(databaseDirectory);
@@ -19,14 +18,12 @@ public class DatabaseManager
 
     public void CreateDatabasesFromTextFiles()
     {
-        // Get all text files from source directory
         string[] files = Directory.GetFiles(sourceDirectory, "*.txt");
         foreach (var file in files)
         {
             string baseFileName = Path.GetFileNameWithoutExtension(file);
             string dbFilePath = Path.Combine(databaseDirectory, $"{baseFileName}.db");
 
-            // Create and populate the database
             bool result = CreateAndPopulateDatabase(file, dbFilePath);
             if (result)
             {

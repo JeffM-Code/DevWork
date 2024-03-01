@@ -1,7 +1,7 @@
 #ifndef STACK_H
 #define STACK_H
 
-#include "Node.h" // Include the common Node class
+#include "Node.h"
 
 class Stack
 {
@@ -19,4 +19,4 @@ public:
     void printStack() const;
 };
 
-#endif // STACK_H
+#endif

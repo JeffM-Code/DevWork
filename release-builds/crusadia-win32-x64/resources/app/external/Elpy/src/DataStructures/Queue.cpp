@@ -1,6 +1,6 @@
 #include "Queue.h"
 #include <iostream>
-#include <sstream> // For string stream processing
+#include <sstream>
 
 Queue::Queue() : front(nullptr), rear(nullptr), size(0) {}
 
@@ -21,9 +21,8 @@ void Queue::enqueue(const std::string& data, const std::string& filename) {
     }
     size++;
 
-    // Log the action and current state
     std::cout << "Enqueuing: " << data << " with filename: " << filename << std::endl;
-    printQueue(); // Call printQueue here to log the queue's current state
+    printQueue();
 }
 
 std::pair<std::string, std::string> Queue::dequeue() {
@@ -42,9 +41,8 @@ std::pair<std::string, std::string> Queue::dequeue() {
     delete temp;
     size--;
 
-    // Log the action and current state
     std::cout << "Dequeuing: " << retData.first << " with filename: " << retData.second << std::endl;
-    printQueue(); // Call printQueue here to log the queue's current state after dequeue
+    printQueue();
     return retData;
 }
 

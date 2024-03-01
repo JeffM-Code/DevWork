@@ -6,8 +6,8 @@ bool LinearSearch::search(const std::vector<int> &data) const
     {
         if (value > 5)
         {
-            return true; // Value over 5 found
+            return true;
         }
     }
-    return false; // No value over 5 found
+    return false;
 }

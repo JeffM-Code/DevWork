@@ -10,11 +10,6 @@ Mechanics
 */
 
 /*
-
-* Existence
-
-*/
-/*
 Weight:
 
 Eq. i: W = m * g
@@ -31,12 +26,6 @@ void calculate_weight(double mass, double gravity)
     printf("Weight: %f Newtons\n", weight);
     fflush(stdout);
 }
-
-/*
-
-* Motion
-
-*/
 
 /*
 Velocity:
@@ -198,12 +187,6 @@ void calculate_average_velocity(double final_velocity, double initial_velocity)
     printf("Average velocity: %f meters/second\n", average_velocity);
     fflush(stdout);
 }
-
-/*
-
-* Interactions
-
-*/
 
 /*
 Force:
