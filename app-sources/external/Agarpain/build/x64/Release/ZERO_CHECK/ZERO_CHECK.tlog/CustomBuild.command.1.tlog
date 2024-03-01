@@ -1,0 +1,10 @@
+^C:\USERS\JEFFE\DOCUMENTS\CRUSADIA\CRUSADIAAPP\EXTERNAL\AGARPAIN\BUILD\CMAKEFILES\8AE8177B74A85E62A17D65B05F9744A6\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/jeffe/Documents/Crusadia/CrusadiaApp/external/Agarpain -BC:/Users/jeffe/Documents/Crusadia/CrusadiaApp/external/Agarpain/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/jeffe/Documents/Crusadia/CrusadiaApp/external/Agarpain/build/Agarpain.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
