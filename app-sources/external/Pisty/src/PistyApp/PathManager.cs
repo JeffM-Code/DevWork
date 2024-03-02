@@ -2,7 +2,7 @@ namespace PistyApp
 {
     class PathManager
     {
-        private readonly string documentsFolderPath;
+        private readonly string basePath;
         private readonly string pistyBasePath;
         private readonly string elpyBasePath;
         private readonly string agarpainBasePath;
@@ -10,12 +10,12 @@ namespace PistyApp
 
         public PathManager()
         {
-            documentsFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            basePath = AppDomain.CurrentDomain.BaseDirectory;
 
-            pistyBasePath = Path.Combine(documentsFolderPath, "release-builds", "crusadia-win32-x64", "resources", "app", "external", "Pisty");
-            elpyBasePath = Path.Combine(documentsFolderPath, "release-builds", "crusadia-win32-x64", "resources", "app", "external", "Elpy", "build", "Release");
-            agarpainBasePath = Path.Combine(documentsFolderPath, "release-builds", "crusadia-win32-x64", "resources", "app", "external", "Agarpain", "build", "Release");
-            workflowBasePath = Path.Combine(documentsFolderPath, "release-builds", "crusadia-win32-x64", "resources", "app", "workflow");
+            pistyBasePath = Path.Combine(basePath, "external", "Pisty");
+            elpyBasePath = Path.Combine(basePath, "external", "Elpy", "build", "Release");
+            agarpainBasePath = Path.Combine(basePath, "external", "Agarpain", "build", "Release");
+            workflowBasePath = Path.Combine(basePath, "workflow");
         }
 
         public string GetSourcePath() => Path.Combine(pistyBasePath, "data");

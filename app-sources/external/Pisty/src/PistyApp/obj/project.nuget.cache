@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L1mPSQ7lTj0rrNwzE21780LtTRXXBwuTZQIq16SYTUTSgXq4dQ+y93ra2OREFSGYh1H4QagCe8QPWy4VTLnzBQ==",
+  "dgSpecHash": "98IgjbAJmptsPqbPE9W+AmusdsY2YMcDn9DtSRwrygoiOJzq03StOUlfbQxsqTMmqdrkc8zWKgnOF3CNdt5TTg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jeffe\\Documents\\Crusadia\\CrusadiaApp\\external\\Pisty\\src\\PistyApp\\PistyApp.csproj",
+  "projectFilePath": "C:\\Users\\jeffe\\Documents\\DevWork\\app-sources\\external\\Pisty\\src\\PistyApp\\PistyApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jeffe\\.nuget\\packages\\microsoft.data.sqlite\\8.0.2\\microsoft.data.sqlite.8.0.2.nupkg.sha512",
     "C:\\Users\\jeffe\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.2\\microsoft.data.sqlite.core.8.0.2.nupkg.sha512",

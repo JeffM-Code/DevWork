@@ -7,54 +7,48 @@
 
 namespace fs = std::filesystem;
 
-DataStructureManager::DataStructureManager()
+DataStructureManager::DataStructureManager(const std::string &basePath)
 {
-    setupPaths();
+    setupPaths(basePath, "");
 }
 
 void DataStructureManager::setupPaths(const std::string &baseReadPath, const std::string &baseWritePathSuffix)
 {
-    char *userPath = nullptr;
-    size_t pathSize = 0;
-    std::filesystem::path homePath;
+    fs::path homePath;
 
-    if (_dupenv_s(&userPath, &pathSize, "USERPROFILE") == 0 && userPath != nullptr)
+    if (!baseReadPath.empty())
     {
-        homePath = userPath;
+        homePath = baseReadPath;
     }
     else
     {
-        if (_dupenv_s(&userPath, &pathSize, "HOME") == 0 && userPath != nullptr)
+        char *userPath = nullptr;
+        size_t pathSize = 0;
+
+        if (_dupenv_s(&userPath, &pathSize, "USERPROFILE") == 0 && userPath != nullptr)
         {
             homePath = userPath;
         }
+        else if (_dupenv_s(&userPath, &pathSize, "HOME") == 0 && userPath != nullptr)
+        {
+            homePath = userPath;
+        }
+
+        if (userPath != nullptr)
+        {
+            free(userPath);
+        }
+
+        homePath = homePath / "Documents" / "release-builds" / "db-electron-win32-x64" / "resources" / "app";
     }
 
-    if (userPath != nullptr)
-    {
-        free(userPath);
-    }
-
-    homePath = homePath / "Documents" / "release-builds" / "crusadia-win32-x64" / "resources" / "app";
-
-    if (baseReadPath.empty())
-    {
-        readPath = homePath / "external" / "Pisty" / "processed_data";
-    }
-    else
-    {
-        readPath = baseReadPath;
-    }
-
+    readPath = homePath / "external" / "Pisty" / "processed_data";
     writePath = homePath / "processed_data_streamlining";
 
     fs::create_directories(writePath);
 
-    std::cout << "Write directory set to: " << writePath << "\n\n";
-
-    std::filesystem::path workflowPath = homePath / "workflow";
-
-    directoryTree = new DirectoryTree(workflowPath.string());
+    std::cout << "Read directory set to: " << readPath << std::endl;
+    std::cout << "Write directory set to: " << writePath << std::endl;
 }
 
 void DataStructureManager::loadData()

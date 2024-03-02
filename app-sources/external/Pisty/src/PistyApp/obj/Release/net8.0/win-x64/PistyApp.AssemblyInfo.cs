@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PistyApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc7ec8c741bf6c5577fea6b4a876ad6a28c7652f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0464f4e75503c80749c2a1e19f0b0eb78e421f49")]
 [assembly: System.Reflection.AssemblyProductAttribute("PistyApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PistyApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -603,11 +603,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jeffe\\Documents\\Crusadia\\CrusadiaApp\\external\\Pisty\\src\\PistyApp\\PistyApp.csproj",
+      "projectUniqueName": "C:\\Users\\jeffe\\Documents\\DevWork\\app-sources\\external\\Pisty\\src\\PistyApp\\PistyApp.csproj",
       "projectName": "PistyApp",
-      "projectPath": "C:\\Users\\jeffe\\Documents\\Crusadia\\CrusadiaApp\\external\\Pisty\\src\\PistyApp\\PistyApp.csproj",
+      "projectPath": "C:\\Users\\jeffe\\Documents\\DevWork\\app-sources\\external\\Pisty\\src\\PistyApp\\PistyApp.csproj",
       "packagesPath": "C:\\Users\\jeffe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jeffe\\Documents\\Crusadia\\CrusadiaApp\\external\\Pisty\\src\\PistyApp\\obj\\",
+      "outputPath": "C:\\Users\\jeffe\\Documents\\DevWork\\app-sources\\external\\Pisty\\src\\PistyApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jeffe\\AppData\\Roaming\\NuGet\\NuGet.Config",

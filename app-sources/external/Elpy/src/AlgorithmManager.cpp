@@ -32,7 +32,7 @@ AlgorithmManager::AlgorithmManager()
         free(userPath);
     }
 
-    homePath = homePath / "Documents" / "release-builds" / "crusadia-win32-x64" / "resources" / "app";
+    homePath = homePath / "Documents" / "release-builds" / "db-electron-win32-x64" / "resources" / "app";
 
     searchPath = homePath / "processed_data_streamlining";
 

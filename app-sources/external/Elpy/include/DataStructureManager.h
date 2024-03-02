@@ -21,6 +21,7 @@ private:
 public:
     Graph dataGraph;
     DataStructureManager();
+    DataStructureManager(const std::string &basePath);
     void setupPaths(const std::string &baseReadPath = "", const std::string &baseWritePathSuffix = "");
     void loadData();
     void processQueueData();

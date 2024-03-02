@@ -1,6 +1,6 @@
-^C:\USERS\JEFFE\DOCUMENTS\CRUSADIA\CRUSADIAAPP\EXTERNAL\ELPY\BUILD\CMAKEFILES\17BC2566431007D5BE31BF74B5E2A255\GENERATE.STAMP.RULE
+^C:\USERS\JEFFE\DOCUMENTS\DEVWORK\APP-SOURCES\EXTERNAL\ELPY\BUILD\CMAKEFILES\9C2736C0A72CF86895EAB13AB97DCA9A\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/jeffe/Documents/Crusadia/CrusadiaApp/external/Elpy -BC:/Users/jeffe/Documents/Crusadia/CrusadiaApp/external/Elpy/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/jeffe/Documents/Crusadia/CrusadiaApp/external/Elpy/build/Elpy.sln
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/jeffe/Documents/DevWork/app-sources/external/Elpy -BC:/Users/jeffe/Documents/DevWork/app-sources/external/Elpy/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/jeffe/Documents/DevWork/app-sources/external/Elpy/build/Elpy.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

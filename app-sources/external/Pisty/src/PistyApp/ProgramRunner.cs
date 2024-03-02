@@ -10,19 +10,18 @@ namespace PistyApp
         {
             try
             {
+                string workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
                 Console.WriteLine($"Attempting to start *..**.* ELPY *.**..* at: {appPath}");
-
-                string workingDirectory = Path.Combine(documentsFolderPath, "release-builds", "crusadia-win32-x64", "resources", "app");
-
                 Console.WriteLine($"Set working directory to: {workingDirectory}");
 
                 using (Process process = new Process())
                 {
                     process.StartInfo.FileName = appPath;
+                    process.StartInfo.WorkingDirectory = workingDirectory;
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
                     process.StartInfo.RedirectStandardError = true;
-                    process.StartInfo.WorkingDirectory = workingDirectory;
 
                     bool started = process.Start();
                     if (!started)

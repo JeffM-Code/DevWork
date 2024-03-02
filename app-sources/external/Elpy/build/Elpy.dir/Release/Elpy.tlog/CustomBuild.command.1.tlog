@@ -1,6 +1,6 @@
-^C:\USERS\JEFFE\DOCUMENTS\CRUSADIA\CRUSADIAAPP\EXTERNAL\ELPY\CMAKELISTS.TXT
+^C:\USERS\JEFFE\DOCUMENTS\DEVWORK\APP-SOURCES\EXTERNAL\ELPY\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/jeffe/Documents/Crusadia/CrusadiaApp/external/Elpy -BC:/Users/jeffe/Documents/Crusadia/CrusadiaApp/external/Elpy/build --check-stamp-file C:/Users/jeffe/Documents/Crusadia/CrusadiaApp/external/Elpy/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/jeffe/Documents/DevWork/app-sources/external/Elpy -BC:/Users/jeffe/Documents/DevWork/app-sources/external/Elpy/build --check-stamp-file C:/Users/jeffe/Documents/DevWork/app-sources/external/Elpy/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

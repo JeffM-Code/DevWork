@@ -6,8 +6,8 @@ const { spawn } = require('child_process');
 const os = require('os');
 const sqlite3 = require('sqlite3').verbose();
 
-const outputPath = path.join(os.homedir(), 'Documents', 'release-builds', 'crusadia-win32-x64', 'resources', 'app', 'output', 'workflowOutput.txt');
-const resetLogPath = path.join(os.homedir(), 'Documents', 'release-builds', 'crusadia-win32-x64', 'resources', 'app', 'output', 'resetLog.txt');
+const outputPath = path.join(__dirname, "..", "..", 'output', 'workflowOutput.txt');
+const resetLogPath = path.join(__dirname, "..", "..", 'output', 'resetLog.txt');
 
 let mainWindow;
 
@@ -38,7 +38,7 @@ function createWindow() {
 }
 
 function watchDataFiles() {
-    const processedDataPath = path.join(os.homedir(), 'Documents', 'release-builds', 'crusadia-win32-x64', 'resources', 'app', 'processed_data_streamlining');
+    const processedDataPath = path.join(__dirname, "..", "..", 'processed_data_streamlining');
 
     fs.watch(processedDataPath, (eventType, filename) => {
         if (filename) {
@@ -50,7 +50,7 @@ function watchDataFiles() {
 }
 
 async function getProcessedDataFiles() {
-    const processedDataPath = path.join(os.homedir(), 'Documents', 'release-builds', 'crusadia-win32-x64', 'resources', 'app', 'processed_data_streamlining');
+    const processedDataPath = path.join(__dirname, "..", "..", 'processed_data_streamlining');
     
     try {
         const files = await fs.promises.readdir(processedDataPath);
@@ -63,7 +63,7 @@ async function getProcessedDataFiles() {
 }
 
 function resetDatabase() {
-    const dbDirectory = path.join(os.homedir(), 'Documents', 'release-builds', 'crusadia-win32-x64', 'resources', 'app', 'external', 'Pisty', 'database');
+    const dbDirectory = path.join(__dirname, "..", "..", 'Documents', 'release-builds', 'db-electron-win32-x64', 'resources', 'app', 'external', 'Pisty', 'database');
 
     fs.readdir(dbDirectory, (err, files) => {
         if (err) {
@@ -155,7 +155,7 @@ async function searchDirectory(dirPath, query) {
 ipcMain.on('getProcessedDataFiles', getProcessedDataFiles);
 
 ipcMain.on('readFileContent', async (event, filePath) => {
-    const processedDataPath = path.join(os.homedir(), 'Documents', 'release-builds', 'crusadia-win32-x64', 'resources', 'app', 'processed_data_streamlining', filePath);
+    const processedDataPath = path.join(__dirname, "..", "..", 'processed_data_streamlining', filePath);
 
     try {
         const content = await fsp.readFile(processedDataPath, 'utf8');
@@ -169,7 +169,7 @@ ipcMain.on('readFileContent', async (event, filePath) => {
 ipcMain.on('resetProcessedDataFiles', async () => {
     fs.writeFileSync(resetLogPath, 'Reset Workflow Initiated\n');
 
-    const processedDataPath = path.join(os.homedir(), 'Documents', 'release-builds', 'crusadia-win32-x64', 'resources', 'app', 'processed_data_streamlining');
+    const processedDataPath = path.join(__dirname, "..", "..", 'processed_data_streamlining');
 
     try {
         const files = await fs.promises.readdir(processedDataPath);
@@ -210,7 +210,7 @@ ipcMain.on('resetProcessedDataFiles', async () => {
 ipcMain.on('openApplication', (event, arg) => {
     console.log('Received openApplication message. Attempting to open PISTY');
 
-    const appPath = path.join(os.homedir(), 'Documents', 'release-builds', 'crusadia-win32-x64', 'resources', 'app', 'external', 'Pisty', 'src', 'PistyApp', 'bin', 'Release', 'net8.0', 'win-x64', 'PistyApp.exe');
+    const appPath = path.join(__dirname, "..", "..", 'external', 'Pisty', 'src', 'PistyApp', 'bin', 'Release', 'net8.0', 'win-x64', 'PistyApp.exe');
 
     fs.writeFileSync(outputPath, '', (err) => {
         if (err) throw err;
@@ -270,7 +270,7 @@ ipcMain.on('readResetLog', () => {
 });
 
 ipcMain.on('searchWorkflowContent', async (event, searchQuery) => {
-    const workflowPath = path.join(os.homedir(), 'Documents', 'release-builds', 'crusadia-win32-x64', 'resources', 'app', 'workflow');
+    const workflowPath = path.join(__dirname, "..", "..", 'workflow');
 
     const { results, searchedPaths, directoryNotFound } = await searchDirectory(workflowPath, searchQuery);
     event.reply('searchResults', { results, searchedPaths, directoryNotFound, searchQuery });
