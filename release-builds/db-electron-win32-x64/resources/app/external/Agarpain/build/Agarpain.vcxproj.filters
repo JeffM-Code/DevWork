@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Agarpain\src\calculation\calculations_controller.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Agarpain\src\calculation\mechanics_calculation_controller.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Agarpain\src\calculation\mechanics_calculations.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Agarpain\src\calculation\thermal_physics_calculation_controller.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Agarpain\src\calculation\thermal_physics_calculations.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Agarpain\src\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Agarpain\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7B07B823-CD97-3142-8FD5-F48DA4513693}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

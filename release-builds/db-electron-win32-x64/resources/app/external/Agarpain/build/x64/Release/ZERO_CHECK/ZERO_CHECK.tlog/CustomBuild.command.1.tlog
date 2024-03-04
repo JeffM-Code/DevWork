@@ -1,0 +1,10 @@
+^C:\USERS\JEFFE\DOCUMENTS\DEVWORK\APP-SOURCES\EXTERNAL\AGARPAIN\BUILD\CMAKEFILES\0BEDA0F49351FCB3D294E6D92B5FD06A\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/jeffe/Documents/DevWork/app-sources/external/Agarpain -BC:/Users/jeffe/Documents/DevWork/app-sources/external/Agarpain/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/jeffe/Documents/DevWork/app-sources/external/Agarpain/build/Agarpain.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
