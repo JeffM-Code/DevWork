@@ -7,45 +7,23 @@
 
 namespace fs = std::filesystem;
 
-DataStructureManager::DataStructureManager(const std::string &basePath)
+DataStructureManager::DataStructureManager(const std::string &basePath) : directoryTree(nullptr)
 {
     setupPaths(basePath, "");
+    directoryTree = new DirectoryTree(readPath.string());
 }
 
 void DataStructureManager::setupPaths(const std::string &baseReadPath, const std::string &baseWritePathSuffix)
 {
-    fs::path homePath;
+    std::filesystem::path basePath(baseReadPath);
 
-    if (!baseReadPath.empty())
+    readPath = basePath / "external" / "Pisty" / "processed_data";
+    writePath = basePath / "processed_data_streamlining";
+
+    if (!std::filesystem::exists(writePath))
     {
-        homePath = baseReadPath;
+        std::filesystem::create_directories(writePath);
     }
-    else
-    {
-        char *userPath = nullptr;
-        size_t pathSize = 0;
-
-        if (_dupenv_s(&userPath, &pathSize, "USERPROFILE") == 0 && userPath != nullptr)
-        {
-            homePath = userPath;
-        }
-        else if (_dupenv_s(&userPath, &pathSize, "HOME") == 0 && userPath != nullptr)
-        {
-            homePath = userPath;
-        }
-
-        if (userPath != nullptr)
-        {
-            free(userPath);
-        }
-
-        homePath = homePath / "Documents" / "release-builds" / "db-electron-win32-x64" / "resources" / "app";
-    }
-
-    readPath = homePath / "external" / "Pisty" / "processed_data";
-    writePath = homePath / "processed_data_streamlining";
-
-    fs::create_directories(writePath);
 
     std::cout << "Read directory set to: " << readPath << std::endl;
     std::cout << "Write directory set to: " << writePath << std::endl;

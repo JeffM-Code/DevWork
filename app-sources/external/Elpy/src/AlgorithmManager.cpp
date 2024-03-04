@@ -39,6 +39,12 @@ AlgorithmManager::AlgorithmManager()
     std::cout << "Search directory set to: " << searchPath << "\n";
 }
 
+AlgorithmManager::AlgorithmManager(const std::string &basePath)
+{
+    searchPath = fs::path(basePath) / "processed_data_streamlining";
+    std::cout << "Search directory set to: " << searchPath << "\n";
+}
+
 void AlgorithmManager::performPatternSearch(const std::string &pattern) const
 {
     NaivePatternSearch searcher;

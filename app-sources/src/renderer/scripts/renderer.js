@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (isSelected) {
                         window.electronAPI.sendMessage('readFileContent', file);
+                        sidebar.classList.remove('sidebar-hidden');
                     } else {
                         outputArea.textContent = "";
                     }
@@ -114,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleClearSearchButtonVisibility() {
         const searchResultsArea = document.querySelector('.search-results-area');
         const clearSearchButton = document.getElementById('clear-search');
-        
+
         if (searchResultsArea.innerHTML.trim() !== '') {
             clearSearchButton.style.display = 'block';
         } else {
@@ -153,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('complete-workflow').addEventListener('click', () => {
-    
+
         document.querySelector('.sidebar').classList.remove('sidebar-hidden');
     });
 
@@ -208,11 +209,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const searchQuery = document.getElementById('search').value.trim();
         if (searchQuery) {
             window.electronAPI.sendMessage('searchWorkflowContent', searchQuery);
-    
+
             document.getElementById('clear-search').style.display = 'block';
-    
+
             document.querySelector('.sidebar').classList.remove('sidebar-hidden');
-            
+
             setTimeout(() => {
                 document.getElementById('search').value = '';
                 toggleSearchButtonVisibility();
@@ -220,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 100);
         }
     });
-    
+
     window.electronAPI.sendMessage('getProcessedDataFiles');
 
     window.electronAPI.receiveMessage('processedDataFilesResponse', (files) => {
@@ -288,11 +289,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('clear-search').addEventListener('click', () => {
         const searchResultsArea = document.querySelector('.search-results-area');
-    
+
         searchResultsArea.innerHTML = '';
-    
+
         document.getElementById('clear-search').style.display = 'none';
-    
+
         toggleSearchButtonVisibility();
     });
 });

@@ -51,7 +51,7 @@ function watchDataFiles() {
 
 async function getProcessedDataFiles() {
     const processedDataPath = path.join(__dirname, "..", "..", 'processed_data_streamlining');
-    
+
     try {
         const files = await fs.promises.readdir(processedDataPath);
         const filteredFiles = files.filter(file => file.startsWith('processed_force_data') || file.startsWith('processed_speed_data') || file.startsWith('processed_weight_data') || file.startsWith('processed_latent_heat_data'));
@@ -63,7 +63,7 @@ async function getProcessedDataFiles() {
 }
 
 function resetDatabase() {
-    const dbDirectory = path.join(__dirname, "..", "..", 'Documents', 'release-builds', 'db-electron-win32-x64', 'resources', 'app', 'external', 'Pisty', 'database');
+    const dbDirectory = path.join(__dirname, "..", "..", 'external', 'Pisty', 'database');
 
     fs.readdir(dbDirectory, (err, files) => {
         if (err) {
@@ -124,7 +124,7 @@ async function searchDirectory(dirPath, query) {
 
         for (const file of files) {
             const filePath = path.join(dirPath, file.name);
-            
+
             if (file.isDirectory()) {
                 const subSearch = await searchDirectory(filePath, query);
                 results = results.concat(subSearch.results);

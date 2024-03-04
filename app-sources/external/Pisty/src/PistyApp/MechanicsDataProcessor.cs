@@ -132,7 +132,9 @@ namespace PistyApp
                 results.Add($"{acceleration} m/s^2");
             }
 
-            dataProcessor.WriteResultsToFile("processed_acceleration_data.txt", results);
+            string fileName = "processed_acceleration_data.txt";
+            string processedFilePath = Path.Combine(targetDirectory, fileName);
+            dataProcessor.WriteResultsToFile(processedFilePath, results);
         }
 
         public void ProcessFinalVelocity()
@@ -196,7 +198,7 @@ namespace PistyApp
             int count = Math.Min(initialVelocityData.Count, finalVelocityData.Count);
             for (int i = 0; i < count; i++)
             {
-                double averageVelocity = (initialVelocityData[i] + finalVelocityData[i]) / 2; // Calculate average velocity
+                double averageVelocity = (initialVelocityData[i] + finalVelocityData[i]) / 2;
                 results.Add($"{averageVelocity} m/s");
             }
 

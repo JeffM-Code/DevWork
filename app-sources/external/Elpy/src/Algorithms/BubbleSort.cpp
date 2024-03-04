@@ -5,11 +5,11 @@
 void BubbleSort::sort(std::vector<std::string> &values) const
 {
     bool swapped;
-    int n = values.size();
+    size_t n = values.size();  // Changed type of n to size_t
     do
     {
         swapped = false;
-        for (int i = 1; i < n; i++)
+        for (size_t i = 1; i < n; i++)  // Also change the loop variable to size_t
         {
             if (extractNumber(values[i - 1]) > extractNumber(values[i]))
             {

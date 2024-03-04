@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PistyApp
+﻿namespace PistyApp
 {
     class Program
     {
@@ -9,20 +7,21 @@ namespace PistyApp
             Console.WriteLine("*.*.*..*.*.** PISTY *.*.*..*.*.**\n");
 
             PathManager pathManager = new PathManager();
+
             string sourceDirectory = pathManager.GetSourcePath();
-            string targetDirectory = pathManager.GetTargetPath();
+            string targetDirectory = pathManager.GetProcessedDataPath();
             string databaseDirectory = pathManager.GetDatabasePath();
             string workflowDirectory = pathManager.GetWorkflowPath();
-            string elpyAppPath = pathManager.GetElpyAppPath();
+            string elpyAppPath = pathManager.GetElpyPath();
+            string agarpainPath = pathManager.GetAgarpainPath();
 
             WorkflowManager workflowManager = new WorkflowManager(workflowDirectory);
             DatabaseManager databaseManager = new DatabaseManager(sourceDirectory, databaseDirectory);
-
             databaseManager.CreateDatabasesFromTextFiles();
 
             DataProcessor dataProcessor = new DataProcessor(sourceDirectory, targetDirectory, databaseDirectory);
 
-            PhysicsDataProcessing physicsDataProcessing = new PhysicsDataProcessing();
+            PhysicsDataProcessing physicsDataProcessing = new PhysicsDataProcessing(agarpainPath);
 
             MechanicsDataProcessing mechanicsDataProcessing = new MechanicsDataProcessing(physicsDataProcessing);
             ThermalPhysicsDataProcessing thermalPhysicsDataProcessing = new ThermalPhysicsDataProcessing(physicsDataProcessing);
@@ -40,6 +39,7 @@ namespace PistyApp
             Console.WriteLine("\n* Processing Mechanics Data...\n");
             mechanicsDataProcessor.ProcessWeight();
             mechanicsDataProcessor.ProcessVelocity();
+            mechanicsDataProcessor.ProcessSpeed();
             mechanicsDataProcessor.ProcessAcceleration();
             mechanicsDataProcessor.ProcessFinalVelocity();
             mechanicsDataProcessor.ProcessFinalDisplacement();

@@ -10,4 +10,3 @@ file(GLOB SOURCES "src/*.cpp" "src/DataStructures/*.cpp" "src/Algorithms/*.cpp")
 add_executable(Elpy ${SOURCES})
 
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")

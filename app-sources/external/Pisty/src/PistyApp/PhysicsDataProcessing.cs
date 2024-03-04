@@ -7,10 +7,8 @@ namespace PistyApp
     {
         private readonly string pathToAgarpain;
 
-        public PhysicsDataProcessing()
+        public PhysicsDataProcessing(string agarpainPath)
         {
-            PathManager pathManager = new PathManager();
-            string agarpainPath = pathManager.GetAgarpainPath();
             pathToAgarpain = agarpainPath;
         }
 

@@ -1,60 +1,56 @@
 #include "DataStructureManager.h"
 #include "AlgorithmManager.h"
-#include "Graph.h"
-#include "DirectoryTree.h"
 
+#include <filesystem>
 #include <iostream>
 #include <string>
-#include <exception>
 
 int main()
 {
     try
     {
-        std::cout << "*.*.*..*.*.** ELPY *.*.*..*.*.**\n"
-                  << std::endl;
+        std::cout << "*.*.*..*.*.** ELPY *.*.*..*.*.**\n\n";
 
-        std::cout << "Current working directory: " << std::filesystem::current_path() << std::endl;
-        
+        std::filesystem::path currentPath = std::filesystem::current_path();
+        std::cout << "Current working directory: " << currentPath << std::endl;
 
-        /*
-        Data structures
-        */
-        DataStructureManager dataStructureManager(std::filesystem::current_path().string());
+        std::filesystem::path basePath = currentPath;
+        while (!basePath.filename().string().empty())
+        {
+            if (basePath.filename() == "app")
+            {
+                break;
+            }
+            basePath = basePath.parent_path();
+        }
 
+        if (basePath.filename().string().empty())
+        {
+            std::cerr << "Failed to find the app-sources directory." << std::endl;
+            return EXIT_FAILURE;
+        }
+
+        std::string basePathStr = basePath.string();
+        std::cout << "Calculated base path: " << basePathStr << std::endl;
+
+        DataStructureManager dataStructureManager(basePathStr);
         dataStructureManager.loadData();
         dataStructureManager.processQueueData();
         dataStructureManager.processStackData();
 
-        /*
-        Algorithms
-        */
-        AlgorithmManager algorithmManager;
-
-        // std::string pattern;
-        // std::cout << "Enter search pattern: ";
-        // std::getline(std::cin, pattern); // Use getline to include whitespaces
-
-        // algorithmManager.performPatternSearch(pattern);
-        // algorithmManager.performLinearSearch();
+        AlgorithmManager algorithmManager(basePathStr);
         algorithmManager.performBubbleSort();
         algorithmManager.performMergeSort();
         algorithmManager.performQuickSort();
 
-        /*
-        **Summary**
-
-        */
         std::cout << "\n\n*************************************************************************************************\n\n";
         std::cout << "--SUMMARY--\n\n";
         std::cout << "Data:\n";
         dataStructureManager.printDirectoryTree();
-        std::cout << "\n\n";
-        std::cout << "Processing:\n";
+        std::cout << "\n\nProcessing:\n";
         dataStructureManager.dataGraph.printGraph();
         std::cout << "\n*************************************************************************************************\n\n";
     }
-
     catch (const std::exception &e)
     {
         std::cerr << "Standard exception caught: " << e.what() << std::endl;

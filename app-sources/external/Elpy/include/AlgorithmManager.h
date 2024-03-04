@@ -11,6 +11,7 @@ private:
 
 public:
     AlgorithmManager();
+    AlgorithmManager(const std::string &basePath);
     void performPatternSearch(const std::string &pattern) const;
     void performLinearSearch() const;
     void performBubbleSort() const;
