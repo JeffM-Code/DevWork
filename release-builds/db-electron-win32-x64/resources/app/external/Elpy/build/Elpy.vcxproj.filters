@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\AlgorithmManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\Algorithms\BubbleSort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\Algorithms\LinearSearch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\Algorithms\MergeSort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\Algorithms\NaivePatternSearch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\Algorithms\QuickSort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\DataStructureManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\DataStructures\DirectoryTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\DataStructures\Graph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\DataStructures\Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\DataStructures\Queue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\DataStructures\Stack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jeffe\Documents\DevWork\app-sources\external\Elpy\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{35F6F3F5-12C4-37E8-8669-3D956CC53E26}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
